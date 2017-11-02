@@ -1,0 +1,196 @@
+html body{
+    font-size: 12px;
+    line-height: 1.6;
+    font-family: Tahoma,Arial,"Hiragino Sans GB",simsun,sans-serif;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+ol, li, a, div{
+    border: 0px;
+}
+ol, ol li, ul, ul li {
+    list-style: none;
+    margin-bottom: 0px;
+}
+
+span{
+    display:inline;
+}
+
+img{
+    border: none;
+}
+
+a,a:visited,a:active,a:hover{
+    color: #333;
+    cursor: pointer;
+    text-decoration:none;
+}
+.app-top-bar {
+    position: relative;
+    z-index: 8000;
+}
+
+.app-width-1000 {
+    width: 1000px;
+    margin: 0 auto;
+    display: block;
+}
+
+.app-top-bar-info {
+    float: left;
+    line-height: 30px;
+    height: 30px;
+}
+
+.app-top-bar-welcome {
+    float: left;
+    color: #999;
+}
+
+.app-top-bar-login-info {
+    float: left;
+    margin-left: 10px;
+    margin-top: 0px;
+    padding: 0px;
+    position: relative;
+}
+
+.app-top-bar-login-item {
+    float: left;
+    display: inline;
+    margin-left: 5px;
+}
+
+.app-top-bar-login-item:after{
+    content: "|";
+    color: #e5e5e5;
+    margin: 0 5px;
+}
+
+.app-top-bar-login-item-last:after{
+    content: "";
+    width: 0px;
+    margin: 0;
+}
+
+.app-top-bar-login-item a:link, .app-top-bar-login-item a:visited {
+    color: #666;
+}
+.app-top-bar-login-item a:hover{
+    color: #f75730;
+}
+
+.app-top-bar-nav {
+    float: right;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+.app-top-bar1 {
+    position: relative;
+    z-index: 3;
+    line-height: 30px;
+    height: 30px;
+    background: #f8f8f8
+}
+
+.app-top-bar2 {
+    padding-top: 5px;
+    height: 75px;
+}
+
+.app-footer {
+    position: fixed;
+    line-height: 1.5px;
+    background: #414141;
+    font-family: "Hiragino Sans GB", "Microsoft YaHei";
+    color: #999;
+    margin-top: 10px;
+    padding-top: 20px;
+    bottom: 0;
+    height: 160px;
+    width: 100%;
+}
+
+.app-footer-nav {
+    border-bottom: 1px solid #545454;
+    padding-bottom: 25px;
+    margin-bottom: 20px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.app-footer-list {
+    margin-left: 0;
+    width: 60px;
+    float: left;
+    margin-left:128px;
+}
+
+.app-footer-list-first{
+    margin-left: 0px;
+}
+
+
+dd,dt{
+   display: block;
+   margin: 0px;
+}
+.app-footer-nav-title {
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+
+.app-footer-nav-item {
+    line-height: 20px;
+    width: inherit;
+}
+.app-footer-nav-item a:visited,.app-footer-nav-item a:active{
+    color: #999;
+}
+
+.app-footer-nav-item a:hover{
+     color: #f75730;
+}
+.app-slide-bar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -210px;
+    width: 250px;
+    z-index: 9000;
+    line-height: 1.5;
+}
+
+.app-slide-bar1{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: #333;
+    width: 40px;
+    height: 100%;
+}
+
+
+.login-title {
+    line-height: 1;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    font-size: 24px;
+    font-family: "Microsoft Yahei","Hiragino Sans GB",sans-serif;
+    padding-left: 14px;
+    font-weight:normal;
+}
+
+

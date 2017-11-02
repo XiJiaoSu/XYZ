@@ -1,0 +1,166 @@
+
+.login-main {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background: #fff;
+    position: relative;
+}
+
+.app-header-logo {
+    position: relative;
+    height: 75px;
+    z-index: 3;
+}
+
+.app-header-logo2 {
+    float: left;
+    width: 340px;
+    height: 70px;
+    margin-right: 20px;
+}
+
+.app-header-logo2 img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.login-content {
+    background: #fbfbfb;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.login-content2 {
+    margin: 0 auto;
+    width: 870px;
+     height: 415px;
+}
+
+.login-content3 {
+    display: inline;
+    float: left;
+    min-height: 1px;
+    margin-left: 5px;
+    margin-right: 5px;
+   
+}
+
+.login-content3 img{
+    float: left;
+    width: 525px;
+    height: 415px;
+}
+
+.login-box {
+    width: 298px;
+    min-height: 380px;
+    margin-right: 15px;
+    padding: 0 10px 33px;
+    float: right;
+    border: 1px solid #d8d8d8;
+    background: #fff;
+}
+
+.login-form {
+    padding-top: 5px;
+    padding-right: 14px;
+}
+
+.login-form-group {
+    padding-left: 14px;
+    width: inherit;
+}
+
+.login-form-label {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.login-form-controller {
+    margin-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    min-height: 32px;
+    height: auto!important;
+}
+
+.login-form-input {
+    width: 256px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    padding: 5px 6px;
+    font-size: 14px;
+    color: #444;
+    vertical-align: middle;
+    background-color: #fff;
+    border: 1px solid #d8d8d8;
+}
+
+.login-for-register {
+    border-top: 1px dotted #cacaca;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 14px;
+    margin-top: 20px;
+}
+
+.link-tips {
+    color: #999;
+    padding: 3px 0;
+}
+
+ .link-tips .link-register {
+    color: #68a741;
+}
+
+.login-btn {
+    
+    display: inline;
+    position: relative;
+}
+
+.login-btn-action {
+    background-image: url(http://www.xyz.cn/assets/img/button/shine-default.png);
+    height: 32px;
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    border: 0 none;
+    font-weight: 700;
+    color: #fff;
+    width: 60%;
+}
+
+.login-form-remebers {
+    display: inline;
+    position: relative;
+    float: right;
+    width: 35%;
+    vertical-align: middle;
+}
+
+.login-forn-actions {
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    min-height: 32px;
+    height: auto!important;
+}
+
+.login-form-forget {
+    position: relative;
+    float: right;
+}
+.login-form-forget:hover{
+    color: #f75730;
+}
