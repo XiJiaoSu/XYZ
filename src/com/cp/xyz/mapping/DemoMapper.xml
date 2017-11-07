@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cp.xyz.dao.DemoDao">
+
+	<resultMap id="BaseDemoMap" type="Demo">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="age" property="age" jdbcType="INTEGER"/>
+	</resultMap>
+	
+	<sql id="Base_SQL">
+		id,name,age
+	</sql>
+	
+	<sql id="Insert_SQL">
+		(id,name,age)
+	</sql>
+	
+	<select id="queryAllDemos" resultMap="BaseDemoMap">
+		select <include refid="Base_SQL" />
+		from demo
+	</select>
+	
+	<select id="selectDemoByDemo" parameterType="Demo" resultMap="BaseDemoMap">
+		select <include refid="Base_SQL" />
+		from demo
+		where 
+		name=#{name}
+		and 
+		age=#{age}
+	</select>
+	
+	
+	<!--  demo 数据添加-->
+	<insert id="insertDemo" parameterType="Demo">
+		<selectKey keyProperty="id" resultType="String" order="BEFORE">
+			select replace(uuid(),'-','') from dual
+		</selectKey>
+
+		insert into demo
+			<include refid="Insert_SQL" />
+		values
+			(
+				#{id,jdbcType=VARCHAR},
+				#{name,jdbcType=VARCHAR},
+				#{age,jdbcType=INTEGER}
+			)
+	</insert>
+	
+</mapper>
