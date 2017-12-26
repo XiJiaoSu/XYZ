@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cp.xyz.pojo.Demo;
+import com.cp.xyz.pojo.json.ResponseObject;
 import com.cp.xyz.service.DemoService;
 
 @Controller
@@ -26,23 +27,22 @@ public class DemoController {
 	
 	
 	@RequestMapping(value="all",method = RequestMethod.GET)
-	public List<Demo> getAllDemos()throws Exception{
+	public ResponseObject getAllDemos()throws Exception{
 		Demo demo=new Demo();
 		demo.setAge(1);
 		demo.setName("name");
 		List<Demo> lists=new ArrayList<Demo>();
 		lists.add(demo);
-		demoService.queryAll();
-		return demoService.queryAll();
+		return new ResponseObject().setContents(demoService.queryAll());
 	}
 	
 	
 	@RequestMapping(value="add",method=RequestMethod.GET)
-	public Demo addDemo()throws Exception{
+	public ResponseObject addDemo()throws Exception{
 		Demo demo=new Demo();
 		demo.setAge(new Random().nextInt(100));
 		demo.setName("name"+new Random().nextInt(200));
-		return demoService.insertDemo(demo);
+		return new ResponseObject().setContents(demoService.insertDemo(demo));
 	}
 	
 }

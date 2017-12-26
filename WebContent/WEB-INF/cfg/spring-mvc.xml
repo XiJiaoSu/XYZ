@@ -32,7 +32,7 @@
 	<mvc:resources location="/frame/" mapping="/frame/**"></mvc:resources>
 
 	
-	<bean class="com.cp.xyz.exception.DefaultController"></bean>
+	<bean class="com.cp.xyz.exception.DefaultException"></bean>
 	
 	<!-- 文件上传 -->
 	<bean id="multipartResolver"
