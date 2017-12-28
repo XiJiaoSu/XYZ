@@ -9,6 +9,9 @@ public class DefaultController {
 	
 	@RequestMapping(value="/")
 	public String test(){
+
+		
+		
 		return "index";
 	}
 	
