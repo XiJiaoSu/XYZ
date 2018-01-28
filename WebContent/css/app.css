@@ -32,7 +32,9 @@ a,s:visited,a:active,a:hover{
 .home-span {
     display:inline;
 }
-
+.search-bottom{
+    margin-top: 5px;
+}
 
 .home-ul{
     list-style: none;
@@ -77,6 +79,7 @@ a,s:visited,a:active,a:hover{
 }
 
 .bottom-header {
+    margin-top: 40px;
     position: relative;
     height: 36px;
     background: #f75730;
@@ -156,7 +159,6 @@ a,s:visited,a:active,a:hover{
     font-size: 14px;
     border: 2px solid #f65730
 }
-
 .search-action {
     border: 0;
     margin: 0;
@@ -170,7 +172,7 @@ a,s:visited,a:active,a:hover{
     color: #fff;
 }
 .search-layout {
-   margin-top: 40px
+    margin-top: 40px
 }
 
 .home-navigation {
