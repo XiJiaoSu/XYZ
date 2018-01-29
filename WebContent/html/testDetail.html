@@ -12,6 +12,38 @@
     <link rel="stylesheet" href="../css/test_css.css">
     <link rel="stylesheet" href="../css/product-detail.css">
     <link rel="stylesheet" href="../css/common.css">
+    <script type="text/javascript" src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="../js/jquery.fly.min.js"></script>
+    <!--[if lte IE 9]>
+    <script src="../js/requestAnimationFrame.js"></script>
+    <![endif]-->
+    <script>
+        $(function() {
+            var offset = $("#end").offset();  //结束的地方的元素
+            $(".addcar").click(function(event){   //是$(".addcar")这个元素点击触发的 开始动画的位置就是这个元素的位置为起点
+                var addcar = $(this);
+                var img = $("#image").attr('src');
+                var flyer = $('<img class="u-flyer" src="'+img+'">');
+                flyer.fly({
+                    start: {
+                        left: event.pageX,
+                        top: event.pageY
+                    },
+                    end: {
+                        left: offset.left,
+                        top: offset.top,
+                        width: 0,
+                        height: 0
+                    },
+                    onEnd: function(){
+                        $("#msg").show().animate({width: '250px'}, 200).fadeOut(1000);
+                        addcar.css("cursor","default").removeClass('orange').unbind('click');
+                        this.destory();
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="app">
@@ -122,7 +154,7 @@
                         <!-- 产品标题区域 /S -->
                         <div class="product-intro__title">
                             <a href="#" class="product-intro__brand">
-                                <img src="../images/2-2.png">
+                                <img id="image" src="../images/2-2.png">
                             </a>
                             <h1 class="product-intro__title-text">申根之王-玛瑙计划</h1>
                         </div>
@@ -181,24 +213,24 @@
                             <!-- 价格模块 /E -->
                             <!-- 促销信息 /S -->
                             <!-- 新品和打折不显示促销信息 -->
-
-
                             <div class="hc-form-item hc-clearFix">
                                 <div class="hc-form-item__label">促销信息</div>
                                 <div class="hc-form-item__content">
                                     <div class="product-intro__promotion">
                                         <ul class="product-intro__promotion-list">
-
                                             <li class="product-intro__promotion-item">
                                                 <span class="product-intro__promotion-tag">积分抵扣</span>
                                                 <span class="product-intro__promotion-text">积分抵扣现金</span>
                                             </li>
-
                                             <li class="product-intro__promotion-item">
-
                                                 <span class="product-intro__promotion-tag">积分</span>
-
-                                                <div class="product-intro__promotion-text j-integral"><p>V1返还65积分，V2返还71积分，V3返还78积分，</p><p>V4返还84积分，V5返还91积分，V6返还97积分。</p><p><a href="/point-mall/" target="_blank" class="hc-link--normal">积分可换好礼</a></p></div>
+                                                <div class="product-intro__promotion-text j-integral">
+                                                    <p>V1返还65积分，V2返还71积分，V3返还78积分。</p>
+                                                    <p>V4返还84积分，V5返还91积分，V6返还97积分。</p>
+                                                    <p>
+                                                        <a href="/point-mall/" target="_blank" class="hc-link--normal">积分可换好礼</a>
+                                                    </p>
+                                                </div>
                                             </li>
                                             <input type="hidden" id="giftTimes" name="giftTimes" class="giftTimes" value="1">
 
@@ -287,7 +319,7 @@
                             <!-- 按钮组 /S-->
                             <div class="hc-form-item product-intro__buttons hc-clearFix">
                                 <div class="hc-form-item__content hc-clearFix">
-                                    <button type="button" class="hc-button hc-button--ghost" data="addToShopCar" id="dev_addtoshoppingcar" role="track_detail-cart-l">
+                                    <button type="button" class="hc-button hc-button--ghost addcar">
                                         加入购物车
                                     </button>
                                     <button type="button" class="hc-button hc-button--recommend" role="track_detail-buy-l">立即购买</button>
@@ -303,32 +335,76 @@
                 </div>
                 <div class="product-calculate j-productSideBar" id="product-trial">
                     <div class="hc-subfield  hc-clearFix product-calculate__title product-calculate__title2">
-
                         <div class="hc-subfield__title">保费<span class="j-trialText">试算</span></div>
                         <div class="hc-subfield__message j-trialText">(请填写被保人信息)</div>
                     </div>
                     <div class="product-line--solid"></div>
                     <div class="hc-form-group j-productFormGroup">
-                        <div id="j-productForm"><div class="hc-form-item hc-clearFix" data-bind="template: {name:'insTem_detail_period',data:window.viewModel[87351].vm}"><div class="hc-form-item__label">保险期间</div>         <div class="hc-form-item__content j-formItemSwitch has-calculate-pannel">                          <a href="javascript:;" class="hc-icon-arrow2 down form-item__switch"></a>                          <span class="product-calculate__value j-calculateValue">                                                                  1-7天                                                                                                                                                                                                                                                                                                                                                                                                                                                          </span>         </div>         <div class="product-calculate__pannel protection-period-pannel j-productCalculatePannel j-periodPannel" style="top: 61px; opacity: 0; display: none;">             <span class="hc-icon-panel-arrow--red product-calculate__pannel-arrow"></span>             <div class="product-calculate__pannel-content">                 <ul class="product-calculate__pannel-choose-list hc-clearFix">                                                               <li class="hc-beautify-radio j-beautifyRadio hc-current">1-7天</li>                                                                                    <li class="hc-beautify-radio j-beautifyRadio">8-10天</li>                                                                                    <li class="hc-beautify-radio j-beautifyRadio">11-15天</li>                                                                                    <li class="hc-beautify-radio j-beautifyRadio">16-18天</li>                                                                                    <li class="hc-beautify-radio j-beautifyRadio">19-24天</li>                                                                                    <li class="hc-beautify-radio j-beautifyRadio">25-30天</li>                                                                                                                                                                                                                                                                                                      <li class="hc-beautify-radio j-beautifyRadio j-freeChoose" onclick="javascript:$('.time-hidden').css('display','block')">自主选择</li>                                      </ul>                 <div class="time-hidden" style="margin-top: 20px;display:none; ">                     <div class="product-calculate__pannel-interval"></div>                     <dl class="time-interval-selection">                         <dt class="time-interval-selection__title">                             <span class="time-interval-selection__title-text">自主选择</span>                             <span class="time-interval-selection__title-tip">(请选择范围1-180天或1年多次往返)</span>                         </dt>                         <dd class="time-interval-selection__item">                             <input id="dev_startTime" class="cal dev_trial hc-input-text hasDatepicker" placeholder="请选择起始日期" size="10" readonly="" type="text">                             <p class="hc-color--red j-errorMsg" style="display: none;">请选择起始日期</p>                         </dd>                         <dd class="time-interval-selection__item">                             <input id="dev_endTime" class="cal dev_trial hc-input-text hasDatepicker" placeholder="请选择终止日期" size="10" readonly="" type="text">                             <p class="hc-color--red j-errorMsg" style="display: none;">请选择终止日期</p>                         </dd>                         <p class="hc-color--red j-errorMsg j-timeRangeMsg" style="display: none;">终止日期不能小于开始日期</p>                         <dd class="time-interval-selection__result">                             <em id="periodDay"></em>                         </dd>                         <dd class="time-interval-selection__buttons hc-clearFix">                             <button type="button" class="hc-button hc-button--recommend hc-button--small" id="j-independentChooseConfirm">确定</button>                             <button type="button" class="hc-button hc-button--default hc-button--small j-cancel">取消</button>                         </dd>                     </dl>                 </div>             </div>         </div></div></div>
-
+                        <div id="j-productForm">
+                            <div class="hc-form-item hc-clearFix" data-bind="template: {name:'insTem_detail_period',data:window.viewModel[87351].vm}">
+                                <div class="hc-form-item__label">保险期间</div>
+                                <div class="hc-form-item__content j-formItemSwitch has-calculate-pannel">
+                                    <a href="javascript:;" class="hc-icon-arrow2 down form-item__switch"></a>
+                                    <span class="product-calculate__value j-calculateValue">1-7天</span>
+                                </div>
+                                <div class="product-calculate__pannel protection-period-pannel j-productCalculatePannel j-periodPannel" style="top: 61px; opacity: 0; display: none;">
+                                    <span class="hc-icon-panel-arrow--red product-calculate__pannel-arrow"></span>
+                                    <div class="product-calculate__pannel-content">
+                                        <ul class="product-calculate__pannel-choose-list hc-clearFix">
+                                            <li class="hc-beautify-radio j-beautifyRadio hc-current">1-7天</li>
+                                            <li class="hc-beautify-radio j-beautifyRadio">8-10天</li>
+                                            <li class="hc-beautify-radio j-beautifyRadio">11-15天</li>
+                                            <li class="hc-beautify-radio j-beautifyRadio">16-18天</li>
+                                            <li class="hc-beautify-radio j-beautifyRadio">19-24天</li>
+                                            <li class="hc-beautify-radio j-beautifyRadio">25-30天</li>
+                                            <li class="hc-beautify-radio j-beautifyRadio j-freeChoose" onclick="javascript:$('.time-hidden').css('display','block')">自主选择</li>
+                                        </ul>
+                                        <div class="time-hidden" style="margin-top: 20px;display:none; ">
+                                            <div class="product-calculate__pannel-interval"></div>
+                                            <dl class="time-interval-selection">
+                                                <dt class="time-interval-selection__title">
+                                                    <span class="time-interval-selection__title-text">自主选择</span>
+                                                    <span class="time-interval-selection__title-tip">(请选择范围1-180天或1年多次往返)</span>
+                                                </dt>
+                                                <dd class="time-interval-selection__item">
+                                                    <input id="dev_startTime" class="cal dev_trial hc-input-text hasDatepicker" placeholder="请选择起始日期" size="10" readonly="" type="text">
+                                                    <p class="hc-color--red j-errorMsg" style="display: none;">请选择起始日期</p>
+                                                </dd>
+                                                <dd class="time-interval-selection__item">
+                                                    <input id="dev_endTime" class="cal dev_trial hc-input-text hasDatepicker" placeholder="请选择终止日期" size="10" readonly="" type="text">
+                                                    <p class="hc-color--red j-errorMsg" style="display: none;">请选择终止日期</p>
+                                                </dd>
+                                                <p class="hc-color--red j-errorMsg j-timeRangeMsg" style="display: none;">终止日期不能小于开始日期</p>
+                                                <dd class="time-interval-selection__result">
+                                                    <em id="periodDay"></em>
+                                                </dd>
+                                                <dd class="time-interval-selection__buttons hc-clearFix">
+                                                    <button type="button" class="hc-button hc-button--recommend hc-button--small" id="j-independentChooseConfirm">确定</button>
+                                                    <button type="button" class="hc-button hc-button--default hc-button--small j-cancel">取消</button>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- 试算结果 /S -->
-                    <div class="product-calculate__result" data-bind="template: &quot;insTem_detail_price&quot;"><p class="product-intro__price-old"></p>         <p class="product-intro__price-now">             <dfn>¥</dfn><span>65.00</span>         </p></div>
+                    <div class="product-calculate__result" data-bind="template: &quot;insTem_detail_price&quot;">
+                        <p class="product-intro__price-old"></p>
+                        <p class="product-intro__price-now">
+                            <dfn>¥</dfn><span>65.00</span>
+                        </p>
+                    </div>
                     <!-- 试算结果 /E -->
                     <!-- 按钮组 /S -->
                     <div class="product-calculate__buttons hc-clearFix">
-
-                        <button type="button" class="hc-button hc-button--ghost j-buyButton " data="addToShopCar" id="dev_addtoshoppingcar" role="track_detail-cart-r">加入购物车</button>
-
-                        <button type="button" class="hc-button hc-button--recommend  j-buyButton " role="track_detail-buy-r">立即购买</button>
-
+                        <button type="button" class="hc-button hc-button--ghost addcar">加入购物车</button>
+                        <button type="button" class="hc-button hc-button--recommend  j-buyButton">立即购买</button>
                     </div>
                     <!-- 按钮组 /E -->
                     <!-- 底部波纹 /S -->
-
-
                     <!-- 底部波纹 /E -->
-
                 </div>
                 <!-- 保险计划 /S -->
                 <div class="insurance-plan hc-clearFix" id="insurancePlanning">
@@ -359,70 +435,21 @@
                 </div>
             </div>
         </div>
-
-        <div class="hc-side-bar j-sideBar">
-            <!-- 导航区 /S -->
-            <div class="hc-side-bar__main">
-                <ul class="hc-side-bar__navigation--top">
-                    <li class="hc-side-bar__item">
-                        <img src="../images/4-3.PNG" width="40" height="40">
-                    </li>
-                    <li class="hc-side-bar__item">
-                        <img src="../images/4-3.PNG" width="40" height="40">
-                    </li>
-                </ul>
-                <!--<ul class="hc-side-bar__navigation&#45;&#45;primary" data-role="nav-main">-->
-                    <!--<li class="hc-side-bar__item" data-role="online-service" title="在线客服">-->
-                        <!--<div class="hc-side-bar__pop" data-role="hover-show" style="right: -168px;">-->
-                            <!--<div class="hc-side-bar__online-service j-openOnlineService" style="cursor: pointer;"></div>-->
-                            <!--&lt;!&ndash; 关闭按钮 &ndash;&gt;-->
-                            <!--<a href="javascript:;" title="收起" class="hc-side-bar__pop-close" data-role="pop-close"></a>-->
-                        <!--</div>-->
-                        <!--<img src="../images/4-3.PNG" width="40px" height="40px">-->
-                    <!--</li>-->
-
-                    <!--<li class="hc-side-bar__item has-fixed-text j-goToShoppingCart" data-role="cart" role="shoppingCartFromSideBar">-->
-                        <!--<span class="hc-icon-side-cart hc-side-bar__item-icon"></span>-->
-                        <!--<span class="hc-side-bar__fixed-text">购物车</span>-->
-                        <!--<span class="hc-side-bar__item-mark" data-role="cart-number" style="top: 6px; display: none;" id="dev_side_shopcar_num">0</span>-->
-                    <!--</li>-->
-
-                    <!--<li class="hc-side-bar__item" data-role="choose-insure" data-index="0">-->
-                        <!--<span class="hc-side-bar__item-text" data-role="hover-show" style="right: -56px;">选保险</span>-->
-                        <!--<span class="hc-icon-side-file hc-side-bar__item-icon"></span>-->
-                    <!--</li>-->
-
-                    <!--<li class="hc-side-bar__item" data-role="compare" data-index="1" data-delete="compare-remove">-->
-                        <!--<span class="hc-side-bar__item-text" data-role="hover-show" style="right: -56px;">产品比较</span>-->
-                        <!--<span class="hc-icon-compare hc-side-bar__item-icon"></span>-->
-                        <!--<span class="hc-side-bar__item-mark" data-role="compare-number" style="display: none;">0</span>-->
-                    <!--</li>-->
-                    <!--<li class="hc-side-bar__item" data-role="footprint" data-index="2" data-delete="footprint-remove">-->
-                        <!--<span class="hc-side-bar__item-text" data-role="hover-show" style="right: -56px;">历史记录</span>-->
-                        <!--<span class="hc-icon-clock hc-side-bar__item-icon"></span>-->
-                    <!--</li>-->
-                    <!--<li class="hc-side-bar__item">-->
-                        <!--<a href="/p/prodcollection.do?xcase=getCollectionForLogin">-->
-                    <!--<span class="hc-side-bar__item-text" data-role="hover-show" style="right: -56px;">-->
-                        <!--收藏夹-->
-                    <!--</span>-->
-                        <!--</a>-->
-                        <!--<a href="/p/prodcollection.do?xcase=getCollectionForLogin">-->
-                            <!--<span class="hc-icon-favorite hc-side-bar__item-icon"></span>-->
-                        <!--</a>-->
-                    <!--</li>-->
-                <!--</ul>-->
-                <ul class="hc-side-bar__navigation--addition">
-                    <li class="hc-side-bar__item">
-                        <img src="../images/4-1.PNG" width="40" height="40">
-                    </li>
-                    <li class="hc-side-bar__item">
-                        <img src="../images/4-2.PNG" width="40" height="40">
-                    </li>
-                </ul>
+        <div class="m-sidebar">
+            <div class="cart">
+                <i id="end"></i>
+                <span>购物车</span>
             </div>
-            <!-- 导航区 /E -->
+            <ul class="hc-side-bar__navigation--addition">
+                <li class="hc-side-bar__item">
+                    <img src="../images/4-1.PNG" width="40" height="40">
+                </li>
+                <li class="hc-side-bar__item">
+                    <img src="../images/4-2.PNG" width="40" height="40">
+                </li>
+            </ul>
         </div>
+        <div id="msg">已成功加入购物车！</div>
     </div>
 </body>
 </html>
