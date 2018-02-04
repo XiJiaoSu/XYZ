@@ -33,4 +33,8 @@ public class UserDao {
 		}
 		return user;
 	}
+	
+	public static User register(User user){
+		return null;
+	}
 }

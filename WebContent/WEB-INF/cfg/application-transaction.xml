@@ -10,10 +10,11 @@
 	http://www.springframework.org/schema/mvc 
         	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-<!-- 创建事务管理器 -->
+<!-- 创建事务管理器  对mybatis操作数据库事务控制，spring使用jdbc的事务控制类-->
 	<!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<!-- 数据源在 dataSource在application-da0.xml中已经配置 -->
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
@@ -25,9 +26,10 @@
 	</aop:config>
 
 
-	<!-- TvAdviceBase -->
+	<!-- TvAdviceBase 通知 -->
 	<tx:advice id="tvAdviceBase" transaction-manager="transactionManager">
 		<tx:attributes>
+		<!-- 传播行为 -->
 			<tx:method name="find*" propagation="SUPPORTS" read-only="true" />
 			<tx:method name="query*" propagation="SUPPORTS" read-only="true" />
 			<tx:method name="update*" propagation="REQUIRED" />

@@ -22,7 +22,9 @@
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 配置jsp路径的前缀 -->
 		<property name="prefix" value="/html/"></property>
+		<!-- 配置jsp路径的后缀 -->
 		<property name="suffix" value=".html"></property>
 	</bean>
 

@@ -15,8 +15,8 @@ import com.cp.xyz.pojo.json.ResponseObject;
 import com.cp.xyz.service.UserService;
 
 @Controller
-@RequestMapping(value="/user/", 
-	produces = "application/json;charset=utf-8")
+@RequestMapping(value="/user/", //访问路径
+	produces = "application/json;charset=utf-8") //返回数据的类型
 @ResponseBody
 public class UserController {
 

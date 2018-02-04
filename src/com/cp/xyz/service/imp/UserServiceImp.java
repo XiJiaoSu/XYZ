@@ -23,7 +23,7 @@ public class UserServiceImp implements UserService {
 	@Override
 	public User register(User user) {
 		
-		return null;
+		return UserDao.register(user);
 	}
 	
 }
